@@ -1,0 +1,14 @@
+{
+  "name": "tradingbot",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "main": "Main.js",
+  "scripts": {
+    "start": "node Main.js"
+  },
+  "dependencies": {
+    "ccxt": "^4.5.0",
+    "node-telegram-bot-api": "^0.66.0",
+    "dotenv": "^17.2.1"
+  }
+}
