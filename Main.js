@@ -11,7 +11,7 @@ const bot = new TelegramBot(Token, { polling: true });
 const Currency = 'BTC/USDT';
 const Drop = 0.1;
 const Gain = 0.5;
-const Amount = 0.00001;
+const Amount = 0.0001;
 
 let LastPrice = null
 
@@ -44,6 +44,7 @@ async function Main() {
 
                 LastPrice = Price;
 
+                console.log(`Выставлено на продажу!\nЦена: ${Price}`);
                 bot.sendMessage(Id, `Выставлено на продажу!\nЦена: ${Price}`);
             }
         }
@@ -54,6 +55,7 @@ async function Main() {
                 let TimeData;
                 const Order = await Binance.createMarketSellOrder(Currency, Amount)
 
+                console.log(`💰 Продано! 💰\nЦена покупки:${LastPrice}\nЦена продажи: ${Price}\n\nПрибыль: ${Price - LastPrice}`);
                 bot.sendMessage(Id, `💰 Продано! 💰\nЦена покупки:${LastPrice}\nЦена продажи: ${Price}\n\nПрибыль: ${Price - LastPrice}`)
                     .then((sentMessage) => TimeData = sentMessage.message_id);
 
